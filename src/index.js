@@ -19,7 +19,7 @@ const data = {
         {
             id: 3,
             message: "If you have any questions or suggestions, please don't hesitate to contact me.",
-            likes: "32",
+            likes: "33",
         },
     ],
     messagesData: [
