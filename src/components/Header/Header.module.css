@@ -1,0 +1,11 @@
+.main {
+    grid-area: h;
+    background-color: rgb(32, 33, 36);
+    height: 80px;
+    border-bottom: 1px solid rgb(21, 21, 21);
+}
+
+.palm_tree_logo {
+    width: 70px;
+    margin: 10px 10px 10px 20px;
+}

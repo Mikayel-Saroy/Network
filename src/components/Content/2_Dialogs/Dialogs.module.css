@@ -1,0 +1,47 @@
+.main {
+    display: grid;
+    grid-template-areas: 'd m';
+    grid-template-columns: 3fr 7fr;
+    margin-top: 5px;
+}
+
+.dialogs {
+    grid-area: d;
+    border: 1px solid rgb(32, 33, 36);
+    background-color: rgb(45, 46, 50);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.messages {
+    grid-area: m;
+    border: 1px solid rgb(32, 33, 36);
+    background-color: rgb(20, 20, 20);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.dialog {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 21px;
+    line-height: 30px;
+}
+
+.dialogInner {
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+.message {
+
+}
+
+.messageInner {
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+.active {
+    color: rgb(252, 114, 51);
+}

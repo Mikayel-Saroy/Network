@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(53, 54, 58);
+}
+
+.app {
+    display: grid;
+    grid-template-areas: 'h h' 'n c';
+    grid-template-columns: 2fr 10fr;
+}
+
+.content {
+    grid-area: c;
+}
+
+.content p {
+    color: whitesmoke;
+}
+
+.content h1 {
+    color: rgb(252, 114, 51);
+}

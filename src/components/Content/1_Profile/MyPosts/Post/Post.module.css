@@ -1,0 +1,27 @@
+.main {
+    display: grid;
+    grid-template-areas: "i s m";
+    margin-top: 25px;
+}
+
+.icon {
+    grid-area: i;
+}
+
+.status {
+    grid-area: s;
+    position: absolute;
+    padding-left: 100px;
+    margin-top: 40px;
+}
+
+.message {
+    grid-area: m;
+    position: absolute;
+    padding-left: 75px;
+}
+
+.main img {
+    width: 50px;
+    border-radius: 30px;
+}
