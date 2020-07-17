@@ -4,12 +4,12 @@ const data = {
             {
                 id: 1,
                 message: "Congratulations for joining to our website.",
-                likes: "24",
+                likes: "21",
             },
             {
                 id: 2,
                 message: "I am a creator of this social network.",
-                likes: "27",
+                likes: "32",
             },
             {
                 id: 3,
