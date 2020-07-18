@@ -3,6 +3,8 @@
     grid-template-areas: 'd m';
     grid-template-columns: 3fr 7fr;
     margin-top: 5px;
+    margin-right: 25px;
+    height: 550px;
 }
 
 .dialogs {

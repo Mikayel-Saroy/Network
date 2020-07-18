@@ -1,20 +1,22 @@
+import {rerenderEntireTree} from "../render";
+
 const data = {
     profile: {
         postsData: [
             {
-                id: 1,
-                message: "Congratulations for joining to our website.",
-                likes: "21",
+                id: 3,
+                post: "If you have any questions or suggestions, please don't hesitate to contact me.",
+                likes: 33,
             },
             {
                 id: 2,
-                message: "I am a creator of this social network.",
-                likes: "32",
+                post: "I am a creator of this social network.",
+                likes: 32,
             },
             {
-                id: 3,
-                message: "If you have any questions or suggestions, please don't hesitate to contact me.",
-                likes: "33",
+                id: 1,
+                post: "Congratulations for joining to our website.",
+                likes: 21,
             },
         ],
     },
@@ -69,5 +71,15 @@ const data = {
         ],
     },
 };
+
+export const addProfilePost = (post) => {
+    let newPost = {
+        id: data.profile.postsData[0].id + 1,
+        post: post,
+        likes: 0,
+    };
+    data.profile.postsData = [newPost, ...data.profile.postsData];
+    rerenderEntireTree(data);
+}
 
 export default data;

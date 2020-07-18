@@ -2,7 +2,7 @@ import React from "react";
 import st from './Dialogs.module.css';
 import MessageItem from "./MessagesItem/MessageItem";
 import DialogItem from "./DialogsItem/DialogItem";
-
+import AddMessage from "./MessagesItem/AddMessage/AddMessage";
 
 const dialogsCreator = (data) => data.map(item => <DialogItem id={item.id} name={item.name}/>);
 const messagesCreator = (data) => data.map(item => <MessageItem message={item.message}/>);
@@ -20,6 +20,7 @@ const Dialogs = (props) => {
                 <div className={st.messageInner}>
                     {messagesCreator(props.messagesData)}
                 </div>
+                <AddMessage/>
             </div>
         </div>
     )

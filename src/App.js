@@ -11,7 +11,6 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 const App = (props) => {
-    debugger;
     return (
         <BrowserRouter>
             <div className={st.app}>
@@ -19,7 +18,8 @@ const App = (props) => {
                 <Navbar/>
                 <div className={st.content}>
                     <Route path='/profile'
-                           render={() => <Profile postsData={props.data.profile.postsData}/>}/>
+                           render={() => <Profile postsData={props.data.profile.postsData}
+                                                  addProfilePost={props.addProfilePost}/>}/>
                     <Route path='/dialogs'
                            render={() => <Dialogs messagesData={props.data.dialogs.messagesData}
                                                   dialogsData={props.data.dialogs.dialogsData}/>}/>

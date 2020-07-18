@@ -2,7 +2,38 @@
 
 }
 
+.textarea {
+    width: 700px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: whitesmoke;
+}
+
 .main textarea {
-    background-color: rgb(190, 193, 193);
+    margin-left: 16px;
+    font-family: Arial, serif;
+    margin-top: 5px;
+    height: 52px;
+    width: 664px;
+    background-color: whitesmoke;
     outline: none;
+    border: none;
+    resize: none;
+    font-size: 16px;
+}
+
+.main button {
+    font-size: 16px;
+    margin-left: 30px;
+    margin-top: 5px;
+    background-color: rgb(252, 114, 51);
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    height: 22px;
+    width: 85px;
+}
+
+.main button:hover {
+    background-color: lightgrey;
 }

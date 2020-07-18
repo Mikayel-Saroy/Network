@@ -1,0 +1,48 @@
+.main {
+    position: absolute;
+    padding: 10px 20px 10px 10px;
+    margin-top: 270px;
+}
+
+.input {
+    position: absolute;
+    height: 40px;
+    width: 730px;
+    outline: none;
+    background-color: whitesmoke;
+    border-radius: 30px;
+}
+
+.input input {
+    font-size: 18px;
+    outline: none;
+    height: 33px;
+    margin-top: 3px;
+    background-color: whitesmoke;
+    width: 655px;
+    border: none;
+    margin-left: 16px;
+}
+
+.button {
+    position: absolute;
+    border: none;
+    border-radius: 30px;
+    height: 36px;
+    width: 36px;
+    margin-top: 2px;
+    margin-left: 690px;
+    margin-bottom: 600px;
+    background-color: rgb(252, 114, 51);
+}
+
+.button:hover {
+    background-color: lightgrey;
+}
+
+.button img {
+
+    height: 23px;
+    margin-left: 9px;
+    margin-top: 7px;
+}

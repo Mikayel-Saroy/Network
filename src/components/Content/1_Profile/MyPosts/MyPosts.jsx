@@ -2,21 +2,26 @@ import React from "react";
 import st from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-let element = React.createRef();
 
-let showText = () => {
-    let elem = element.current.value;
-    alert(elem);
-}
-
-const PostCreator = (data) => data.map(item => <Post message={item.message} likes={item.likes}/>);
+const PostCreator = (data) => data.map(item => <Post post={item.post} likes={item.likes}/>);
 
 const MyPosts = (props) => {
+    let element = React.createRef();
+    const addPost = () => {
+        let elem = element.current.value;
+        props.addProfilePost(elem);
+        element.current.value = '';
+    }
+
     return (
         <div className={st.main}>
             <div>
-                <textarea placeholder='Enter your text.' rel={element}/>
-                <button onClick={showText}>Add Post</button>
+                <div className={st.textarea}>
+                    <textarea placeholder='Enter your text.' ref={element} />
+                </div>
+                <div>
+                    <button onClick={addPost}>Add Post</button>
+                </div>
             </div>
             {PostCreator(props.postsData)}
         </div>
