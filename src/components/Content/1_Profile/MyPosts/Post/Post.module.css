@@ -1,27 +1,43 @@
 .main {
-    display: grid;
-    grid-template-areas: "i s m";
-    margin-top: 25px;
-}
-
-.icon {
-    grid-area: i;
+    margin-top: 45px;
 }
 
 .status {
-    grid-area: s;
     position: absolute;
-    padding-left: 100px;
+    cursor: pointer;
+    background-color: rgb(252, 114, 51);
+    border-radius: 30px;
+    margin-left: 90px;
     margin-top: 40px;
+    color: black;
+    width: 70px;
+    height: 20px;
+}
+
+.status:hover {
+    background-color: lightgrey;
+}
+
+.statusInner {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 9px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas: "m i";
 }
 
 .message {
-    grid-area: m;
+    grid-area: i;
+    margin-left: 70px;
     position: absolute;
-    padding-left: 75px;
+    color: whitesmoke;
 }
 
-.main img {
+.icon {
+    grid-area: m;
     width: 50px;
     border-radius: 30px;
 }

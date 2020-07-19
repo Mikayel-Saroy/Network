@@ -6,6 +6,10 @@
     margin-right: 25px;
 }
 
+.main p {
+    color: whitesmoke;
+}
+
 .dialogs {
     grid-area: d;
     border: 1px solid rgb(32, 33, 36);

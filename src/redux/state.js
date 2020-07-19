@@ -88,6 +88,14 @@ export const addProfilePost = () => {
     data.profile.postsData = [newPost, ...data.profile.postsData];
     rerenderEntireTree(data);
 }
+export const addLike = (e) => {
+    for (let i = 0; i < data.profile.postsData.length; i++) {
+        if (data.profile.postsData[i].id === e) {
+            data.profile.postsData[i].likes++
+        }
+    }
+    rerenderEntireTree(data);
+}
 
 export const handleDialogsMessage = (e) => {
     data.dialogs.messagesDataCurrent = e;
@@ -98,7 +106,7 @@ export const addDialogsMessage = () => {
         id: data.dialogs.messagesData.length + 1,
         message: data.dialogs.messagesDataCurrent,
     }
-    data.dialogs.messagesDataCurrent=''
+    data.dialogs.messagesDataCurrent = ''
     data.dialogs.messagesData.push(newMessage);
     rerenderEntireTree(data)
     console.log(data);

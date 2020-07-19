@@ -23,6 +23,7 @@
 }
 
 .button {
+    cursor: pointer;
     position: absolute;
     border: none;
     border-radius: 30px;

@@ -20,6 +20,7 @@ const App = (props) => {
                     <Route path='/profile'
                            render={() => <Profile postsDataCurrent={props.data.profile.postsDataCurrent}
                                                   postsData={props.data.profile.postsData}
+                                                  addLike={props.addLike}
                                                   handleProfilePost={props.handleProfilePost}
                                                   addProfilePost={props.addProfilePost}/>}/>
                     <Route path='/dialogs'

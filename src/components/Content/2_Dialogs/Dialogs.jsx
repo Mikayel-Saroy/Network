@@ -4,9 +4,9 @@ import MessageItem from "./MessagesItem/MessageItem";
 import DialogItem from "./DialogsItem/DialogItem";
 import AddMessage from "./MessagesItem/AddMessage/AddMessage";
 
+
 const dialogsCreator = (data) => data.map(item => <DialogItem id={item.id} name={item.name}/>);
 const messagesCreator = (data) => data.map(item => <MessageItem message={item.message}/>);
-
 
 const Dialogs = (props) => {
     return (

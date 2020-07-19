@@ -23,6 +23,7 @@
 }
 
 .main button {
+    cursor: pointer;
     font-size: 16px;
     margin-left: 30px;
     margin-top: 5px;

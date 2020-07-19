@@ -2,10 +2,14 @@ import React from "react";
 import st from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-
-const PostCreator = (data) => data.map(item => <Post post={item.post} likes={item.likes}/>);
-
 const MyPosts = (props) => {
+    const PostCreator = (data) => data.map(item => <Post post={item.post}
+                                                         likes={item.likes}
+                                                         id={item.id}
+                                                         addLike={props.addLike}
+
+    />);
+
     let element = React.createRef();
     const handleChange = () => {
         let elem = element.current.value;

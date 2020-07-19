@@ -12,10 +12,6 @@ body {
     grid-area: c;
 }
 
-.content p {
-    color: whitesmoke;
-}
-
 .content h1 {
     color: rgb(252, 114, 51);
 }
