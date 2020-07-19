@@ -1,4 +1,7 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {}
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
 
 const data = {
     profile: {
@@ -73,6 +76,7 @@ const data = {
         ],
     },
 };
+export default data;
 
 export const handleProfilePost = (e) => {
     data.profile.postsDataCurrent = e;
@@ -112,4 +116,3 @@ export const addDialogsMessage = () => {
     console.log(data);
 }
 
-export default data;
