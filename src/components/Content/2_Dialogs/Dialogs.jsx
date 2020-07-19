@@ -20,7 +20,9 @@ const Dialogs = (props) => {
                 <div className={st.messageInner}>
                     {messagesCreator(props.messagesData)}
                 </div>
-                <AddMessage/>
+                <AddMessage messagesDataCurrent={props.messagesDataCurrent}
+                            addDialogsMessage={props.addDialogsMessage}
+                            handleDialogsMessage={props.handleDialogsMessage}/>
             </div>
         </div>
     )

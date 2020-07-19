@@ -7,20 +7,22 @@ const PostCreator = (data) => data.map(item => <Post post={item.post} likes={ite
 
 const MyPosts = (props) => {
     let element = React.createRef();
-    const addPost = () => {
+    const handleChange = () => {
         let elem = element.current.value;
-        props.addProfilePost(elem);
-        element.current.value = '';
+        props.handleProfilePost(elem);
     }
 
     return (
         <div className={st.main}>
             <div>
                 <div className={st.textarea}>
-                    <textarea placeholder='Enter your text.' ref={element} />
+                    <textarea placeholder='Enter your text.'
+                              ref={element}
+                              value={props.postsDataCurrent}
+                              onChange={handleChange}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add Post</button>
+                    <button onClick={props.addProfilePost}>Add Post</button>
                 </div>
             </div>
             {PostCreator(props.postsData)}

@@ -18,11 +18,16 @@ const App = (props) => {
                 <Navbar/>
                 <div className={st.content}>
                     <Route path='/profile'
-                           render={() => <Profile postsData={props.data.profile.postsData}
+                           render={() => <Profile postsDataCurrent={props.data.profile.postsDataCurrent}
+                                                  postsData={props.data.profile.postsData}
+                                                  handleProfilePost={props.handleProfilePost}
                                                   addProfilePost={props.addProfilePost}/>}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs messagesData={props.data.dialogs.messagesData}
-                                                  dialogsData={props.data.dialogs.dialogsData}/>}/>
+                           render={() => <Dialogs messagesDataCurrent={props.data.dialogs.messagesDataCurrent}
+                                                  messagesData={props.data.dialogs.messagesData}
+                                                  dialogsData={props.data.dialogs.dialogsData}
+                                                  addDialogsMessage={props.addDialogsMessage}
+                                                  handleDialogsMessage={props.handleDialogsMessage}/>}/>
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>

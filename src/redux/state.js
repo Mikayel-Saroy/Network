@@ -2,6 +2,7 @@ import {rerenderEntireTree} from "../render";
 
 const data = {
     profile: {
+        postsDataCurrent: '',
         postsData: [
             {
                 id: 3,
@@ -21,6 +22,7 @@ const data = {
         ],
     },
     dialogs: {
+        messagesDataCurrent: '',
         messagesData: [
             {
                 id: 1,
@@ -72,14 +74,34 @@ const data = {
     },
 };
 
-export const addProfilePost = (post) => {
+export const handleProfilePost = (e) => {
+    data.profile.postsDataCurrent = e;
+    rerenderEntireTree(data);
+}
+export const addProfilePost = () => {
     let newPost = {
         id: data.profile.postsData[0].id + 1,
-        post: post,
+        post: data.profile.postsDataCurrent,
         likes: 0,
     };
+    data.profile.postsDataCurrent = '';
     data.profile.postsData = [newPost, ...data.profile.postsData];
     rerenderEntireTree(data);
+}
+
+export const handleDialogsMessage = (e) => {
+    data.dialogs.messagesDataCurrent = e;
+    rerenderEntireTree(data);
+}
+export const addDialogsMessage = () => {
+    let newMessage = {
+        id: data.dialogs.messagesData.length + 1,
+        message: data.dialogs.messagesDataCurrent,
+    }
+    data.dialogs.messagesDataCurrent=''
+    data.dialogs.messagesData.push(newMessage);
+    rerenderEntireTree(data)
+    console.log(data);
 }
 
 export default data;
