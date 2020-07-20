@@ -18,15 +18,15 @@ const App = (props) => {
                 <Navbar/>
                 <div className={st.content}>
                     <Route path='/profile'
-                           render={() => <Profile postsDataCurrent={props.data.profile.postsDataCurrent}
-                                                  postsData={props.data.profile.postsData}
+                           render={() => <Profile postsDataCurrent={props.state.profile.postsDataCurrent}
+                                                  postsData={props.state.profile.postsData}
                                                   addLike={props.addLike}
                                                   handleProfilePost={props.handleProfilePost}
                                                   addProfilePost={props.addProfilePost}/>}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs messagesDataCurrent={props.data.dialogs.messagesDataCurrent}
-                                                  messagesData={props.data.dialogs.messagesData}
-                                                  dialogsData={props.data.dialogs.dialogsData}
+                           render={() => <Dialogs messagesDataCurrent={props.state.dialogs.messagesDataCurrent}
+                                                  messagesData={props.state.dialogs.messagesData}
+                                                  dialogsData={props.state.dialogs.dialogsData}
                                                   addDialogsMessage={props.addDialogsMessage}
                                                   handleDialogsMessage={props.handleDialogsMessage}/>}/>
                     <Route path='/news' component={News}/>
