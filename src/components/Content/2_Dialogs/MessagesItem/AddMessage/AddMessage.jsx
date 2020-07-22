@@ -1,7 +1,7 @@
 import React from "react";
 import st from "./AddMessage.module.css";
 import send_button from "../../send_button.png";
-
+import {AddDialogsMessageActionCreator, handleDialogsMessageActionCreator} from "../../../../../redux/state";
 
 
 const AddMessage = (props) => {
@@ -11,10 +11,12 @@ const AddMessage = (props) => {
     }
     const handleChange = () => {
         let elem = element.current.value;
-        props.dispatch({type: 'HANDLE-DIALOGS-MESSAGE', e: elem})
+        let action = handleDialogsMessageActionCreator(elem);
+        props.dispatch(action);
     }
     const handleSubmit = () => {
-        props.dispatch({type: 'ADD-DIALOGS-MESSAGE'})
+        let action = AddDialogsMessageActionCreator();
+        props.dispatch(action);
     }
     return (
         <div className={st.main}>

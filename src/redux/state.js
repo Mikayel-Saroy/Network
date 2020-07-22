@@ -72,7 +72,9 @@ let store = {
             ],
         },
     },
-    _callSubscriber() {},  //  Renamed: rerenderEntireTree
+    _callSubscriber() {
+
+    },  //  Renamed: rerenderEntireTree
 
     getState() {
         return this._state;
@@ -94,7 +96,7 @@ let store = {
             this._state.profile.postsDataCurrent = '';
             this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
             this._callSubscriber(this._state);
-        } else if (action.type ===  'ADD-LIKE') {
+        } else if (action.type === 'ADD-LIKE') {
             for (let i = 0; i < this._state.profile.postsData.length; i++) {
                 if (this._state.profile.postsData[i].id === action.e) {
                     this._state.profile.postsData[i].likes++
@@ -112,9 +114,9 @@ let store = {
             this._state.dialogs.messagesDataCurrent = ''
             this._state.dialogs.messagesData.push(newMessage);
             this._callSubscriber(this._state)
-            console.log(this._state);
         }
     },
+
     // handleProfilePost(e) {
     //     this._state.profile.postsDataCurrent = e;
     //     this._callSubscriber(this._state);
@@ -154,5 +156,34 @@ let store = {
     //     console.log(this._state);
     // },
 };
-
 export default store;
+
+export const handleProfilePostActionCreator = (elem) => {
+    return {
+        type: 'HANDLE-PROFILE-POST',
+        e: elem,
+    }
+};
+export const AddProfilePostActionCreator = () => {
+    return {
+        type: 'ADD-PROFILE-POST',
+    }
+};
+export const AddLikeActionCreator = (id) => {
+    return {
+        type: 'ADD-LIKE',
+        e: id,
+    }
+};
+
+export const handleDialogsMessageActionCreator = (elem) => {
+    return {
+        type: 'HANDLE-DIALOGS-MESSAGE',
+        e: elem
+    }
+};
+export const AddDialogsMessageActionCreator = () => {
+    return {
+        type: 'ADD-DIALOGS-MESSAGE',
+    }
+};
