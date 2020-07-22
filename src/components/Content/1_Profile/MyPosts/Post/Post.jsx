@@ -5,7 +5,7 @@ import bald_eagle from './bald_eagle.jpg';
 const Post = (props) => {
     return (
         <div className={st.main}>
-            <div className={st.status} onClick={() => props.addLike(props.id)}>
+            <div className={st.status} onClick={() => props.dispatch({type: 'ADD-LIKE', e: props.id})}>
                 <p className={st.statusInner}>like {props.likes}</p>
             </div>
             <div className={st.wrapper}>

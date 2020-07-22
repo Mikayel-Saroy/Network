@@ -10,9 +10,10 @@ const Profile = (props) => {
             <ProfileInfo/>
             <MyPosts postsDataCurrent={props.postsDataCurrent}
                      postsData={props.postsData}
-                     addLike={props.addLike}
-                     handleProfilePost={props.handleProfilePost}
-                     addProfilePost={props.addProfilePost}/>
+                // addLike={props.addLike}
+                // handleProfilePost={props.handleProfilePost}
+                // addProfilePost={props.addProfilePost}
+                     dispatch={props.dispatch}/>
         </div>
     )
 }

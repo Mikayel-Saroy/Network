@@ -6,14 +6,15 @@ const MyPosts = (props) => {
     const PostCreator = (data) => data.map(item => <Post post={item.post}
                                                          likes={item.likes}
                                                          id={item.id}
-                                                         addLike={props.addLike}
-
-    />);
+                                                         dispatch={props.dispatch}/>);
 
     let element = React.createRef();
     const handleChange = () => {
         let elem = element.current.value;
-        props.handleProfilePost(elem);
+        props.dispatch({type: 'HANDLE-PROFILE-POST', e: elem})
+    }
+    const handleSubmit = () => {
+        props.dispatch({type: 'ADD-PROFILE-POST'})
     }
 
     return (
@@ -26,7 +27,7 @@ const MyPosts = (props) => {
                               onChange={handleChange}/>
                 </div>
                 <div>
-                    <button onClick={props.addProfilePost}>Add Post</button>
+                    <button onClick={handleSubmit}>Add Post</button>
                 </div>
             </div>
             {PostCreator(props.postsData)}

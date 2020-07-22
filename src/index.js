@@ -6,11 +6,7 @@ import React from "react";
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(<App state={state}
-                         handleProfilePost={store.handleProfilePost.bind(store)}
-                         addProfilePost={store.addProfilePost.bind(store)}
-                         addLike={store.addLike.bind(store)}
-                         handleDialogsMessage={store.handleDialogsMessage.bind(store)}
-                         addDialogsMessage={store.addDialogsMessage.bind(store)}
+                         dispatch={store.dispatch.bind(store)}
     />, document.getElementById('root'));
 }
 

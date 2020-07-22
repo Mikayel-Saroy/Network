@@ -72,51 +72,87 @@ let store = {
             ],
         },
     },
+    _callSubscriber() {},  //  Renamed: rerenderEntireTree
 
     getState() {
         return this._state;
     },
-    rerenderEntireTree() {},
     subscribe(observer) {
-        this.rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     },
 
-    handleProfilePost(e) {
-        this._state.profile.postsDataCurrent = e;
-        this.rerenderEntireTree(this._state);
-    },
-    addProfilePost() {
-        let newPost = {
-            id: this._state.profile.postsData[0].id + 1,
-            post: this._state.profile.postsDataCurrent,
-            likes: 0,
-        };
-        this._state.profile.postsDataCurrent = '';
-        this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
-        this.rerenderEntireTree(this._state);
-    },
-    addLike(e) {
-        for (let i = 0; i < this._state.profile.postsData.length; i++) {
-            if (this._state.profile.postsData[i].id === e) {
-                this._state.profile.postsData[i].likes++
+    dispatch(action) {
+        if (action.type === 'HANDLE-PROFILE-POST') {
+            this._state.profile.postsDataCurrent = action.e;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-PROFILE-POST') {
+            let newPost = {
+                id: this._state.profile.postsData[0].id + 1,
+                post: this._state.profile.postsDataCurrent,
+                likes: 0,
+            };
+            this._state.profile.postsDataCurrent = '';
+            this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
+            this._callSubscriber(this._state);
+        } else if (action.type ===  'ADD-LIKE') {
+            for (let i = 0; i < this._state.profile.postsData.length; i++) {
+                if (this._state.profile.postsData[i].id === action.e) {
+                    this._state.profile.postsData[i].likes++
+                }
             }
+            this._callSubscriber(this._state);
+        } else if (action.type === 'HANDLE-DIALOGS-MESSAGE') {
+            this._state.dialogs.messagesDataCurrent = action.e;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-DIALOGS-MESSAGE') {
+            let newMessage = {
+                id: this._state.dialogs.messagesData.length + 1,
+                message: this._state.dialogs.messagesDataCurrent,
+            }
+            this._state.dialogs.messagesDataCurrent = ''
+            this._state.dialogs.messagesData.push(newMessage);
+            this._callSubscriber(this._state)
+            console.log(this._state);
         }
-        this.rerenderEntireTree(this._state);
     },
-    handleDialogsMessage(e) {
-        this._state.dialogs.messagesDataCurrent = e;
-        this.rerenderEntireTree(this._state);
-    },
-    addDialogsMessage() {
-        let newMessage = {
-            id: this._state.dialogs.messagesData.length + 1,
-            message: this._state.dialogs.messagesDataCurrent,
-        }
-        this._state.dialogs.messagesDataCurrent = ''
-        this._state.dialogs.messagesData.push(newMessage);
-        this.rerenderEntireTree(this._state)
-        console.log(this._state);
-    },
+    // handleProfilePost(e) {
+    //     this._state.profile.postsDataCurrent = e;
+    //     this._callSubscriber(this._state);
+    // },
+    //
+    // addProfilePost() {
+    //     let newPost = {
+    //         id: this._state.profile.postsData[0].id + 1,
+    //         post: this._state.profile.postsDataCurrent,
+    //         likes: 0,
+    //     };
+    //     this._state.profile.postsDataCurrent = '';
+    //     this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
+    //     this._callSubscriber(this._state);
+    // },
+    // addLike(e) {
+    //     for (let i = 0; i < this._state.profile.postsData.length; i++) {
+    //         if (this._state.profile.postsData[i].id === e) {
+    //             this._state.profile.postsData[i].likes++
+    //         }
+    //     }
+    //     this._callSubscriber(this._state);
+    // },
+    //
+    // handleDialogsMessage(e) {
+    //     this._state.dialogs.messagesDataCurrent = e;
+    //     this._callSubscriber(this._state);
+    // },
+    // addDialogsMessage() {
+    //     let newMessage = {
+    //         id: this._state.dialogs.messagesData.length + 1,
+    //         message: this._state.dialogs.messagesDataCurrent,
+    //     }
+    //     this._state.dialogs.messagesDataCurrent = ''
+    //     this._state.dialogs.messagesData.push(newMessage);
+    //     this._callSubscriber(this._state)
+    //     console.log(this._state);
+    // },
 };
 
 export default store;
