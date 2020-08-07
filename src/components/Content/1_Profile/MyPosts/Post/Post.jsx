@@ -1,7 +1,7 @@
 import React from "react";
 import st from './Post.module.css';
 import bald_eagle from './bald_eagle.jpg';
-import {addLikeActionCreator} from "../../../../../redux/state";
+import {addLikeActionCreator} from "../../../../../redux/profile-reducer";
 
 const Post = (props) => {
     const handleLike = () => {
