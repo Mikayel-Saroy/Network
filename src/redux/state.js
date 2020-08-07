@@ -116,45 +116,46 @@ let store = {
             this._callSubscriber(this._state)
         }
     },
+    /*
+    handleProfilePost(e) {
+        this._state.profile.postsDataCurrent = e;
+        this._callSubscriber(this._state);
+    },
 
-    // handleProfilePost(e) {
-    //     this._state.profile.postsDataCurrent = e;
-    //     this._callSubscriber(this._state);
-    // },
-    //
-    // addProfilePost() {
-    //     let newPost = {
-    //         id: this._state.profile.postsData[0].id + 1,
-    //         post: this._state.profile.postsDataCurrent,
-    //         likes: 0,
-    //     };
-    //     this._state.profile.postsDataCurrent = '';
-    //     this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
-    //     this._callSubscriber(this._state);
-    // },
-    // addLike(e) {
-    //     for (let i = 0; i < this._state.profile.postsData.length; i++) {
-    //         if (this._state.profile.postsData[i].id === e) {
-    //             this._state.profile.postsData[i].likes++
-    //         }
-    //     }
-    //     this._callSubscriber(this._state);
-    // },
-    //
-    // handleDialogsMessage(e) {
-    //     this._state.dialogs.messagesDataCurrent = e;
-    //     this._callSubscriber(this._state);
-    // },
-    // addDialogsMessage() {
-    //     let newMessage = {
-    //         id: this._state.dialogs.messagesData.length + 1,
-    //         message: this._state.dialogs.messagesDataCurrent,
-    //     }
-    //     this._state.dialogs.messagesDataCurrent = ''
-    //     this._state.dialogs.messagesData.push(newMessage);
-    //     this._callSubscriber(this._state)
-    //     console.log(this._state);
-    // },
+    addProfilePost() {
+        let newPost = {
+            id: this._state.profile.postsData[0].id + 1,
+            post: this._state.profile.postsDataCurrent,
+            likes: 0,
+        };
+        this._state.profile.postsDataCurrent = '';
+        this._state.profile.postsData = [newPost, ...this._state.profile.postsData];
+        this._callSubscriber(this._state);
+    },
+    addLike(e) {
+        for (let i = 0; i < this._state.profile.postsData.length; i++) {
+            if (this._state.profile.postsData[i].id === e) {
+                this._state.profile.postsData[i].likes++
+            }
+        }
+        this._callSubscriber(this._state);
+    },
+
+    handleDialogsMessage(e) {
+        this._state.dialogs.messagesDataCurrent = e;
+        this._callSubscriber(this._state);
+    },
+    addDialogsMessage() {
+        let newMessage = {
+            id: this._state.dialogs.messagesData.length + 1,
+            message: this._state.dialogs.messagesDataCurrent,
+        }
+        this._state.dialogs.messagesDataCurrent = ''
+        this._state.dialogs.messagesData.push(newMessage);
+        this._callSubscriber(this._state)
+        console.log(this._state);
+    },
+    */
 };
 export default store;
 
@@ -164,12 +165,12 @@ export const handleProfilePostActionCreator = (elem) => {
         e: elem,
     }
 };
-export const AddProfilePostActionCreator = () => {
+export const addProfilePostActionCreator = () => {
     return {
         type: 'ADD-PROFILE-POST',
     }
 };
-export const AddLikeActionCreator = (id) => {
+export const addLikeActionCreator = (id) => {
     return {
         type: 'ADD-LIKE',
         e: id,
@@ -182,7 +183,7 @@ export const handleDialogsMessageActionCreator = (elem) => {
         e: elem
     }
 };
-export const AddDialogsMessageActionCreator = () => {
+export const addDialogsMessageActionCreator = () => {
     return {
         type: 'ADD-DIALOGS-MESSAGE',
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {AddProfilePostActionCreator, handleProfilePostActionCreator} from "../../../../redux/state";
+import {addProfilePostActionCreator, handleProfilePostActionCreator} from "../../../../redux/state";
 
 const MyPosts = (props) => {
     const PostCreator = (data) => data.map(item => <Post post={item.post}
@@ -16,7 +16,7 @@ const MyPosts = (props) => {
         props.dispatch(action);
     }
     const handleSubmit = () => {
-        let action = AddProfilePostActionCreator();
+        let action = addProfilePostActionCreator();
         props.dispatch(action);
     }
 
