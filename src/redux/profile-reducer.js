@@ -1,4 +1,25 @@
-const profileReducer = (state, action) => {
+let initialState = {
+    postsDataCurrent: '',
+    postsData: [
+        {
+            id: 3,
+            post: "If you have any questions or suggestions, please don't hesitate to contact me.",
+            likes: 33,
+        },
+        {
+            id: 2,
+            post: "I am a creator of this social network.",
+            likes: 32,
+        },
+        {
+            id: 1,
+            post: "Congratulations for joining to our website.",
+            likes: 21,
+        },
+    ],
+};
+
+const profileReducer = (state = initialState, action) => {
     if (action.type === 'HANDLE-PROFILE-POST') {
         state.postsDataCurrent = action.e;
     } else if (action.type === 'ADD-PROFILE-POST') {
