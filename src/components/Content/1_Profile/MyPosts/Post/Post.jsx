@@ -1,17 +1,15 @@
 import React from "react";
 import st from './Post.module.css';
 import bald_eagle from './bald_eagle.jpg';
-import {addLikeActionCreator} from "../../../../../redux/profile-reducer";
 
 const Post = (props) => {
-    const handleLike = () => {
-        let action = addLikeActionCreator(props.id);
-        props.dispatch(action);
+    const likeButton = () => {
+        props.handleLike(props.id);
     }
 
     return (
         <div className={st.main}>
-            <div className={st.status} onClick={handleLike}>
+            <div className={st.status} onClick={likeButton}>
                 <p className={st.statusInner}>like {props.likes}</p>
             </div>
             <div className={st.wrapper}>

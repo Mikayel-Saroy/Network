@@ -1,22 +1,19 @@
 import React from "react";
 import st from "./AddMessage.module.css";
 import send_button from "../../send_button.png";
-import {addDialogsMessageActionCreator, handleDialogsMessageActionCreator} from "../../../../../redux/dialogs-reducer";
 
 
 const AddMessage = (props) => {
     let element = React.createRef();
     const keyEnter = (e) => {
-        if (e.keyCode === 13) handleSubmit();
+        if (e.keyCode === 13) submitFunc();
     }
-    const handleChange = () => {
+    const changeFunc = () => {
         let elem = element.current.value;
-        let action = handleDialogsMessageActionCreator(elem);
-        props.dispatch(action);
+        props.handleChange(elem);
     }
-    const handleSubmit = () => {
-        let action = addDialogsMessageActionCreator();
-        props.dispatch(action);
+    const submitFunc = () => {
+        props.handleSubmit();
     }
 
     return (
@@ -26,9 +23,9 @@ const AddMessage = (props) => {
                        ref={element}
                        onKeyDown={(e) => keyEnter(e)}
                        value={props.messagesDataCurrent}
-                       onChange={handleChange}/>
+                       onChange={changeFunc}/>
             </div>
-            <div className={st.button} onClick={handleSubmit}>
+            <div className={st.button} onClick={submitFunc}>
                 <img src={send_button} alt='img'/>
             </div>
         </div>

@@ -1,23 +1,21 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addProfilePostActionCreator, handleProfilePostActionCreator} from "../../../../redux/profile-reducer";
+
 
 const MyPosts = (props) => {
     const PostCreator = (data) => data.map(item => <Post post={item.post}
                                                          likes={item.likes}
                                                          id={item.id}
-                                                         dispatch={props.dispatch}/>);
+                                                         handleLike={props.handleLike}/>);
 
     let element = React.createRef();
-    const handleChange = () => {
+    const changeFunc = () => {
         let elem = element.current.value;
-        let action = handleProfilePostActionCreator(elem);
-        props.dispatch(action);
+        props.handleChange(elem);
     }
-    const handleSubmit = () => {
-        let action = addProfilePostActionCreator();
-        props.dispatch(action);
+    const submitFunc = () => {
+        props.handleSubmit();
     }
 
     return (
@@ -27,10 +25,10 @@ const MyPosts = (props) => {
                     <textarea placeholder='Enter your text.'
                               ref={element}
                               value={props.postsDataCurrent}
-                              onChange={handleChange}/>
+                              onChange={changeFunc}/>
                 </div>
                 <div>
-                    <button onClick={handleSubmit}>Add Post</button>
+                    <button onClick={submitFunc}>Add Post</button>
                 </div>
             </div>
             {PostCreator(props.postsData)}

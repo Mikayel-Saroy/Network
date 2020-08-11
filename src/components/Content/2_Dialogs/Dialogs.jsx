@@ -21,7 +21,8 @@ const Dialogs = (props) => {
                     {messagesCreator(props.messagesData)}
                 </div>
                 <AddMessage messagesDataCurrent={props.messagesDataCurrent}
-                            dispatch={props.dispatch}/>
+                            handleChange={props.handleChange}
+                            handleSubmit={props.handleSubmit}/>
             </div>
         </div>
     )
