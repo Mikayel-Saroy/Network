@@ -5,29 +5,34 @@ import {
     handleProfilePostActionCreator
 } from "../../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
+import StoreContext from "../../../../StoreContext";
 
-const MyPostsContainer = (props) => {
-    let state = props.store.getState();
+const MyPostsContainer = () => {
+    return <StoreContext.Consumer>
+        {
+            (store) => {
+                let state = store.getState();
 
-    const handleChange = (elem) => {
-        let action = handleProfilePostActionCreator(elem);
-        props.store.dispatch(action);
-    }
-    const handleSubmit = () => {
-        let action = addProfilePostActionCreator();
-        props.store.dispatch(action);
-    }
-    const handleLike = (id) => {
-        let action = addLikeActionCreator(id);
-        props.store.dispatch(action);
-    }
-
-    return <MyPosts handleChange={handleChange}
-                    handleSubmit={handleSubmit}
-                    handleLike={handleLike}
-                    postsDataCurrent={state.profile.postsDataCurrent}
-                    postsData={state.profile.postsData}/>
-
+                const handleChange = (elem) => {
+                    let action = handleProfilePostActionCreator(elem);
+                    store.dispatch(action);
+                }
+                const handleSubmit = () => {
+                    let action = addProfilePostActionCreator();
+                    store.dispatch(action);
+                }
+                const handleLike = (id) => {
+                    let action = addLikeActionCreator(id);
+                    store.dispatch(action);
+                }
+                return <MyPosts handleChange={handleChange}
+                                handleSubmit={handleSubmit}
+                                handleLike={handleLike}
+                                postsDataCurrent={state.profile.postsDataCurrent}
+                                postsData={state.profile.postsData}/>
+            }
+        }
+    </StoreContext.Consumer>
 }
 
 export default MyPostsContainer;
