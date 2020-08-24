@@ -1,38 +1,36 @@
-import React from "react";
 import {
     addLikeActionCreator,
     addProfilePostActionCreator,
     handleProfilePostActionCreator
 } from "../../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
-import StoreContext from "../../../../StoreContext";
+import {connect} from "react-redux";
 
-const MyPostsContainer = () => {
-    return <StoreContext.Consumer>
-        {
-            (store) => {
-                let state = store.getState();
 
-                const handleChange = (elem) => {
-                    let action = handleProfilePostActionCreator(elem);
-                    store.dispatch(action);
-                }
-                const handleSubmit = () => {
-                    let action = addProfilePostActionCreator();
-                    store.dispatch(action);
-                }
-                const handleLike = (id) => {
-                    let action = addLikeActionCreator(id);
-                    store.dispatch(action);
-                }
-                return <MyPosts handleChange={handleChange}
-                                handleSubmit={handleSubmit}
-                                handleLike={handleLike}
-                                postsDataCurrent={state.profile.postsDataCurrent}
-                                postsData={state.profile.postsData}/>
-            }
-        }
-    </StoreContext.Consumer>
-}
+const mapStateToProps = (state) => {
+    return {
+        postsDataCurrent: state.profile.postsDataCurrent,
+        postsData: state.profile.postsData,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleChange: (elem) => {
+            let action = handleProfilePostActionCreator(elem);
+            dispatch(action);
+        },
+        handleSubmit: () => {
+            let action = addProfilePostActionCreator();
+            dispatch(action);
+        },
+        handleLike: (id) => {
+            let action = addLikeActionCreator(id);
+            dispatch(action);
+        },
+    }
+};
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;

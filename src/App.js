@@ -10,7 +10,7 @@ import Settings from "./components/Content/6_Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <BrowserRouter>
             <div className={st.app}>
