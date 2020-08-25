@@ -21,23 +21,32 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     if (action.type === 'HANDLE-PROFILE-POST') {
-        state.postsDataCurrent = action.e;
+        let stateCopy = {...state};
+        stateCopy.postsDataCurrent = action.e;
+        return stateCopy;
     } else if (action.type === 'ADD-PROFILE-POST') {
+        let stateCopy = {...state};
+        stateCopy.postsData = [...state.postsData];
         let newPost = {
             id: state.postsData[0].id + 1,
             post: state.postsDataCurrent,
             likes: 0,
         };
-        state.postsDataCurrent = '';
-        state.postsData = [newPost, ...state.postsData];
+        stateCopy.postsDataCurrent = '';
+        stateCopy.postsData = [newPost, ...state.postsData];
+        return stateCopy;
     } else if (action.type === 'ADD-LIKE') {
+        let stateCopy = {...state};
+        stateCopy.postsData = [...state.postsData];
         for (let i = 0; i < state.postsData.length; i++) {
             if (state.postsData[i].id === action.e) {
-                state.postsData[i].likes++
+                stateCopy.postsData[i].likes++
             }
         }
+        return stateCopy;
+    } else {
+        return state;
     }
-    return state;
 }
 
 export default profileReducer;
