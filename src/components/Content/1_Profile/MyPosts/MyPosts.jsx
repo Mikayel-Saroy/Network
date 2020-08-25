@@ -7,6 +7,7 @@ const MyPosts = (props) => {
     const PostCreator = (data) => data.map(item => <Post post={item.post}
                                                          likes={item.likes}
                                                          key={item.id}
+                                                         id={item.id}
                                                          handleLike={props.handleLike}/>);
 
     let element = React.createRef();

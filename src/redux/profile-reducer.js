@@ -20,30 +20,38 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
-    if (action.type === 'HANDLE-PROFILE-POST') {
-        stateCopy.postsDataCurrent = action.e;
-        return stateCopy;
-    } else if (action.type === 'ADD-PROFILE-POST') {
-        stateCopy.postsData = [...state.postsData];
-        let newPost = {
-            id: state.postsData[0].id + 1,
-            post: state.postsDataCurrent,
-            likes: 0,
-        };
-        stateCopy.postsDataCurrent = '';
-        stateCopy.postsData = [newPost, ...state.postsData];
-        return stateCopy;
-    } else if (action.type === 'ADD-LIKE') {
-        stateCopy.postsData = [...state.postsData];
-        for (let i = 0; i < state.postsData.length; i++) {
-            if (state.postsData[i].id === action.e) {
-                stateCopy.postsData[i].likes++
+    switch (action.type) {
+        case 'HANDLE-PROFILE-POST':
+            return {
+                ...state,
+                postsDataCurrent: action.e,
+            };
+        case 'ADD-PROFILE-POST':
+            return {
+                ...state,
+                postsData: [
+                    {
+                        id: state.postsData[0].id + 1,
+                        post: state.postsDataCurrent,
+                        likes: 0,
+                    },
+                    ...state.postsData,
+                ],
+                postsDataCurrent: '',
+            };
+        case 'ADD-LIKE':
+            let stateCopy = {
+                ...state,
+                postsData: [...state.postsData],
+            };
+            for (let i = 0; i < state.postsData.length; i++) {
+                if (state.postsData[i].id === action.e) {
+                    stateCopy.postsData[i].likes++
+                }
             }
-        }
-        return stateCopy;
-    } else {
-        return stateCopy;
+            return stateCopy;
+        default:
+            return state;
     }
 }
 

@@ -5,8 +5,11 @@ import DialogItem from "./DialogsItem/DialogItem";
 import AddMessage from "./MessagesItem/AddMessage/AddMessage";
 
 
-const dialogsCreator = (data) => data.map(item => <DialogItem key={item.id} name={item.name}/>);
-const messagesCreator = (data) => data.map(item => <MessageItem message={item.message} key={item.id}/>);
+const dialogsCreator = (data) => data.map(item => <DialogItem key={item.id}
+                                                              id={item.id}
+                                                              name={item.name}/>);
+const messagesCreator = (data) => data.map(item => <MessageItem message={item.message}
+                                                                key={item.id}/>);
 
 const Dialogs = (props) => {
     return (

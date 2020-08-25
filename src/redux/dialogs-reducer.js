@@ -51,21 +51,26 @@ let initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
-    if (action.type === 'HANDLE-DIALOGS-MESSAGE') {
-        stateCopy.messagesDataCurrent = action.e;
-        return stateCopy;
-    } else if (action.type === 'ADD-DIALOGS-MESSAGE') {
-        stateCopy.messagesData = [...state.messagesData];
-        let newMessage = {
-            id: stateCopy.messagesData.length + 1,
-            message: stateCopy.messagesDataCurrent,
-        }
-        stateCopy.messagesDataCurrent = ''
-        stateCopy.messagesData.push(newMessage);
-        return stateCopy;
-    } else {
-        return stateCopy;
+    switch (action.type) {
+        case 'HANDLE-DIALOGS-MESSAGE':
+            return {
+                ...state,
+                messagesDataCurrent: action.e,
+            };
+        case 'ADD-DIALOGS-MESSAGE':
+            return {
+                ...state,
+                messagesData: [
+                    ...state.messagesData,
+                    {
+                        id: state.messagesData.length + 1,
+                        message: state.messagesDataCurrent,
+                    }
+                ],
+                messagesDataCurrent: '',
+            };
+        default:
+            return state;
     }
 }
 export default dialogsReducer;
