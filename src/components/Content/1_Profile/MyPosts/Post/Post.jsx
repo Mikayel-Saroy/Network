@@ -4,7 +4,7 @@ import bald_eagle from './bald_eagle.jpg';
 
 const Post = (props) => {
     const likeButton = () => {
-        props.handleLike(props.id);
+        props.handleLike(props.key);
     }
 
     return (

@@ -6,7 +6,7 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
     const PostCreator = (data) => data.map(item => <Post post={item.post}
                                                          likes={item.likes}
-                                                         id={item.id}
+                                                         key={item.id}
                                                          handleLike={props.handleLike}/>);
 
     let element = React.createRef();
