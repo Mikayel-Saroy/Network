@@ -1,0 +1,58 @@
+.main {
+    display: grid;
+    grid-template-columns: 150px 400px;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    width: 550px;
+    height: 135px;
+    background-color: rgb(32, 33, 36);
+    border-radius: 30px;
+}
+
+.left {
+
+}
+
+.left img {
+    width: 60px;
+    border-radius: 100%;
+    border: 2px solid black;
+    margin: 20px 0 0 30px;
+}
+
+.right {
+
+}
+
+.name {
+    color: rgb(252, 114, 51);
+    font-size: 21px;
+}
+
+.location {
+    margin-top: -10px;
+    color: whitesmoke;
+    font-size: 16px;
+}
+
+.followButtonOuter {
+    position: absolute;
+    cursor: pointer;
+    background-color: rgb(252, 114, 51);
+    border-radius: 30px;
+    margin-top: 95px;
+    margin-left: 27px;
+    color: black;
+    width: 70px;
+    height: 20px;
+}
+
+.followButtonOuter:hover {
+    background-color: lightgrey;
+}
+
+.followButton {
+    height: 20px;
+    width: 70px;
+    margin-top: 1px;
+}
