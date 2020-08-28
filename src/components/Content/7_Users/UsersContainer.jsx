@@ -3,7 +3,6 @@ import Users from "./Users";
 import {followUsersActionCreator} from "../../../redux/users-reducer";
 
 const mapStateToProps = (state) => {
-    debugger;
     return {
         usersData: state.users.usersData,
     }

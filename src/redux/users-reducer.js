@@ -90,20 +90,27 @@ const usersReducer = (state = initialState, action) => {
             stateCopy = {
                 ...state,
                 usersData: [...state.usersData],
-            }
+            };
             for (let i = 0; i < state.usersData.length; i++) {
                 if (action.id === state.usersData[i].id) {
                     if (state.usersData[i].isFollow === true) {
+                        stateCopy.usersData[i] = {
+                            ...state.usersData[i],
+                        };
                         stateCopy.usersData[i].isFollow = false;
                         stateCopy.usersData[i].followText = 'Follow';
                         stateCopy.usersData[i].marginLeft = '13px';
                     } else {
+                        stateCopy.usersData[i] = {
+                            ...state.usersData[i],
+                        };
                         stateCopy.usersData[i].isFollow = true;
                         stateCopy.usersData[i].followText = 'Unfollow';
                         stateCopy.usersData[i].marginLeft = '5px';
                     }
                 }
             }
+            console.log(stateCopy, state);
             return stateCopy;
         }
         default: {
